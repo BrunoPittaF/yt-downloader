@@ -14,6 +14,11 @@ let videoName = 'default';
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/api', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+});
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
