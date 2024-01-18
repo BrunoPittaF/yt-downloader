@@ -23,7 +23,7 @@ app.post('/', (req, res) => {
   download(videoLink, res);
 });
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log('Server Listen to 127.0.0.1:', port));
 
 async function download(videoLink, res) {
